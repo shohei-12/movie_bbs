@@ -1,0 +1,26 @@
+inherit_from: .rubocop_todo.yml
+
+require: rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.7.1
+  Exclude:
+    - "config.ru"
+    - "bin/*"
+    - "lib/**"
+    - "db/**/*"
+    - "config/**/*"
+    - !ruby/regexp /old_and_unused\.rb$/
+    - "node_modules/**/*"
+
+AsciiComments:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+ClassAndModuleChildren:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
