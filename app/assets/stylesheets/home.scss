@@ -1,3 +1,47 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+html,
+body {
+  height: 100%;
+}
+
+header .navbar {
+  padding: 20px;
+}
+
+.top-page {
+  height: 100%;
+  padding-top: 150px;
+  color: rgba(255, 255, 255, 0.8);
+  background-image: image-url("movie.jpg");
+  background-color: rgba(255, 255, 255, 0.3);
+  background-blend-mode: lighten;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  h1,
+  p {
+    margin-bottom: 80px;
+  }
+  .btn-gradient-simple {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+    background-image: linear-gradient(45deg, #c7020e 0%, #cb4829 100%);
+    transition: 0.4s;
+    &:hover {
+      background-image: linear-gradient(45deg, #c7020e 50%, #cb4829 100%);
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+}
+
+footer {
+  color: #fff;
+  padding: 20px;
+  p {
+    margin: 0;
+  }
+}
