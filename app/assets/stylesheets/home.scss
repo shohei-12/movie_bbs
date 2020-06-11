@@ -38,6 +38,25 @@ header .navbar {
   }
 }
 
+@media all and (max-width: 768px) {
+  .button {
+    display: flex;
+    flex-direction: column;
+    div:first-of-type .btn-gradient-simple {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media all and (min-width: 768px) {
+  .button {
+    display: flex;
+    div:first-of-type .btn-gradient-simple {
+      margin-right: 15px;
+    }
+  }
+}
+
 footer {
   color: #fff;
   padding: 20px;
