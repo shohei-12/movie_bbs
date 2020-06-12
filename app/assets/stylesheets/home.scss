@@ -12,19 +12,22 @@
   p {
     margin-bottom: 80px;
   }
-  .btn-gradient-simple {
-    display: inline-block;
-    padding: 0.5em 1em;
-    text-decoration: none;
-    border-radius: 3px;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.8);
-    background-image: linear-gradient(45deg, #c7020e 0%, #cb4829 100%);
-    transition: 0.4s;
-    &:hover {
-      background-image: linear-gradient(45deg, #c7020e 50%, #cb4829 100%);
+  .button {
+    padding-bottom: 50px;
+    .btn-gradient-simple {
+      display: inline-block;
+      padding: 0.5em 1em;
       text-decoration: none;
-      color: #fff;
+      border-radius: 3px;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.8);
+      background-image: linear-gradient(45deg, #c7020e 0%, #cb4829 100%);
+      transition: 0.4s;
+      &:hover {
+        background-image: linear-gradient(45deg, #c7020e 50%, #cb4829 100%);
+        text-decoration: none;
+        color: #fff;
+      }
     }
   }
 }

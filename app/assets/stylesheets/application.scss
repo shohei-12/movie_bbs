@@ -8,12 +8,8 @@ body {
 #wrapper {
   position: relative;
   min-height: 100vh;
-  padding-bottom: 56px;
+  padding-bottom: 52px;
   box-sizing: border-box;
-}
-
-header .navbar {
-  padding: 10px 25px;
 }
 
 footer {
@@ -21,7 +17,7 @@ footer {
   bottom: 0;
   width: 100%;
   color: rgba(255, 255, 255, 0.5);
-  padding: 10px 25px;
+  padding: 0.5rem 1rem;
   text-align: center;
   p {
     font-size: 12px;
