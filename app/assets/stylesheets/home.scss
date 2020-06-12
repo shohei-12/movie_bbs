@@ -4,12 +4,12 @@ body {
 }
 
 header .navbar {
-  padding: 20px;
+  padding: 10px 25px;
 }
 
 .top-page {
   height: 100%;
-  padding-top: 150px;
+  padding: 150px 0;
   color: rgba(255, 255, 255, 0.8);
   background-image: image-url("movie.jpg");
   background-color: rgba(255, 255, 255, 0.3);
@@ -58,9 +58,12 @@ header .navbar {
 }
 
 footer {
-  color: #fff;
-  padding: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 10px 25px;
+  text-align: center;
   p {
+    font-size: 12px;
+    letter-spacing: 1px;
     margin: 0;
   }
 }
