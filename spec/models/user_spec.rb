@@ -98,6 +98,13 @@ RSpec.describe User, type: :model do
         end
       end
 
+      context 'when password and confirmation password do not match' do
+        it 'return false' do
+          @user.password_confirmation = 'foobar'
+          expect(@user.valid?).to eq false
+        end
+      end
+
       context 'when password is less than 6 characters' do
         it 'return false' do
           @user.password = 'abcde'
