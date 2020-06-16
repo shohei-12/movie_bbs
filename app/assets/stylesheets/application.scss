@@ -12,9 +12,11 @@ body {
   box-sizing: border-box;
 }
 
-.user h1 {
+.user {
   padding-top: 100px;
-  text-align: center;
+  h1 {
+    text-align: center;
+  }
 }
 
 footer {
