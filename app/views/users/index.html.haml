@@ -1,0 +1,7 @@
+.user
+    %h1 ユーザーの一覧
+    %ul
+        - @users.each do |user|
+            %li
+                = link_to user.name, "#"
+    = paginate @users

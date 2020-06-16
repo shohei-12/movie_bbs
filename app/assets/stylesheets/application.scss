@@ -12,6 +12,11 @@ body {
   box-sizing: border-box;
 }
 
+.user h1 {
+  padding-top: 100px;
+  text-align: center;
+}
+
 footer {
   position: absolute;
   bottom: 0;
@@ -24,4 +29,30 @@ footer {
     letter-spacing: 1px;
     margin: 0;
   }
+}
+
+.page-link {
+  border: initial;
+}
+
+/* 表示しているページ番号のデザイン */
+.page-item.active .page-link {
+  z-index: initial;
+  color: initial;
+  background-color: initial;
+  border-color: initial;
+}
+
+/*ホバー時のデザイン*/
+.page-link:hover {
+  z-index: initial;
+  text-decoration: underline;
+  background-color: initial;
+  border-color: initial;
+}
+
+.page-link:focus {
+  z-index: initial;
+  outline: initial;
+  box-shadow: initial;
 }
