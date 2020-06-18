@@ -17,6 +17,12 @@ body {
   h1 {
     text-align: center;
   }
+  .danger-message {
+    color: red;
+  }
+  .success-message {
+    color: limegreen;
+  }
 }
 
 footer {
