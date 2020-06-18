@@ -3,7 +3,8 @@ User.create!(
   name: '前田 翔平',
   email: 'maeda@gmail.com',
   password: 'password',
-  password_confirmation: 'password'
+  password_confirmation: 'password',
+  admin: true
 )
 
 # 99 sub users

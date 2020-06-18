@@ -4,6 +4,7 @@ FactoryBot.define do
     email { 'john@example.com' }
     password { 'password' }
     password_confirmation { 'password' }
+    admin { 'true' }
   end
 
   factory :dummy, class: User do
