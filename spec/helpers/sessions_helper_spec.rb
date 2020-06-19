@@ -69,7 +69,7 @@ RSpec.describe SessionsHelper, type: :helper do
       end
     end
 
-    context 'when the user is not logged in ' do
+    context 'when the user is not logged in' do
       it 'return nil' do
         log_out
         expect(session[:user_id]).to eq nil
