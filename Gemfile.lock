@@ -175,6 +175,9 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rack_session_access (0.2.0)
+      builder (>= 2.0.0)
+      rack (>= 1.0.0)
     rails (6.0.3.1)
       actioncable (= 6.0.3.1)
       actionmailbox (= 6.0.3.1)
@@ -323,6 +326,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma (~> 4.1)
+  rack_session_access
   rails (~> 6.0.3, >= 6.0.3.1)
   rails-i18n
   rspec-rails

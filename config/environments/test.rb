@@ -4,6 +4,9 @@
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
+  # Access to rack session
+  config.middleware.use RackSessionAccess::Middleware
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.cache_classes = false
