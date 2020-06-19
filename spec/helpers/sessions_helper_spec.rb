@@ -4,8 +4,10 @@ RSpec.describe SessionsHelper, type: :helper do
   let(:john) { create(:john) }
 
   describe '#log_in(user)' do
-    it 'return true' do
-      expect(log_in(john)).to be_truthy
+    before { log_in(john) }
+
+    it 'log in as john' do
+      expect(session[:user_id]).to eq john.id
     end
   end
 
@@ -53,6 +55,24 @@ RSpec.describe SessionsHelper, type: :helper do
     context 'when the given user is not logged in' do
       it 'return false' do
         expect(current_user?(john)).to eq false
+      end
+    end
+  end
+
+  describe '#log_out' do
+    context 'when the user is logged in' do
+      before { log_in(john) }
+
+      it 'delete a session' do
+        log_out
+        expect(session[:user_id]).to eq nil
+      end
+    end
+
+    context 'when the user is not logged in ' do
+      it 'return nil' do
+        log_out
+        expect(session[:user_id]).to eq nil
       end
     end
   end
