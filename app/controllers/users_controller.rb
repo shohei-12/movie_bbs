@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :check_user, only: %i[edit update]
+  before_action :check_admin, only: :destroy
 
   def index
     @users = User.page(params[:page])
@@ -55,5 +56,10 @@ class UsersController < ApplicationController
   def check_user
     @user = User.find(params[:id])
     redirect_to root_url unless current_user?(@user)
+  end
+
+  # Check user is admin
+  def check_admin
+    redirect_to root_url unless current_user.admin?
   end
 end
