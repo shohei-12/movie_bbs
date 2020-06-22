@@ -19,3 +19,14 @@ User.create!(
     password_confirmation: password
   )
 end
+
+# posts
+30.times do |n|
+  title = "テスト#{n + 1}"
+  content = "テスト投稿#{n + 1}です。"
+  Post.create!(
+    title: title,
+    content: content,
+    user_id: 1
+  )
+end

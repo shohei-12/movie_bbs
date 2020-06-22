@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  before { @post = create(:post) }
+  before { @post = create(:post_2) }
 
   describe 'title' do
     context 'when title is valid' do

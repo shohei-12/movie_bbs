@@ -5,9 +5,8 @@ RSpec.describe 'UsersList', type: :system do
 
   subject { page }
 
-  it 'display user list page' do
+  it 'display all users' do
     visit users_path
-    is_expected.to have_current_path users_path
     User.page(1).each do |user|
       is_expected.to have_link user.name, href: user_path(user)
     end

@@ -1,4 +1,12 @@
+= stylesheet_link_tag 'posts', media: 'all', 'data-turbolinks-track': 'reload'
 .user
     = render 'shared/flash'
 
     %p= @user.name
+
+    - @posts.each do |post|
+        .user-post
+            %p= post.title
+            %p= post.content
+
+    = paginate @posts
