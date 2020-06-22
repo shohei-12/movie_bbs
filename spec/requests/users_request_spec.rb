@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  describe 'delete' do
+  describe 'DELETE #destroy' do
     before do
       @john = create(:john)
       @mary = create(:mary)

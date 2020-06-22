@@ -1,0 +1,13 @@
+.post
+    %h1 投稿する
+
+    = form_with(model: @post, local: true) do |f|
+        = render 'shared/error_messages', object: f.object
+
+        = f.label :title, "タイトル（50文字以内）"
+        = f.text_field :title, class: 'form-control'
+
+        = f.label :content, "内容（800文字以内）"
+        = f.text_area :content, class: 'form-control'
+
+        = f.submit '投稿する', class: 'btn btn-primary'

@@ -1,27 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before { @user = create(:john) }
+  before { @john = create(:john) }
 
   describe 'name' do
     context 'when name is valid' do
       it 'return true' do
-        expect(@user.valid?).to eq true
+        expect(@john.valid?).to eq true
       end
     end
 
     context 'when name is invalid' do
       context 'when name is empty' do
         it 'return false' do
-          @user.name = ''
-          expect(@user.valid?).to eq false
+          @john.name = ''
+          expect(@john.valid?).to eq false
         end
       end
 
       context 'when name is over 50 characters' do
         it 'return false' do
-          @user.name = 'a' * 51
-          expect(@user.valid?).to eq false
+          @john.name = 'a' * 51
+          expect(@john.valid?).to eq false
         end
       end
     end
@@ -35,8 +35,8 @@ RSpec.describe User, type: :model do
          'A_US-ER@foo.bar.org',
          'first.last@foo.jp',
          'alice+bob@baz.cn'].each do |valid_email|
-           @user.email = valid_email
-           expect(@user.valid?).to eq true
+           @john.email = valid_email
+           expect(@john.valid?).to eq true
          end
       end
     end
@@ -44,15 +44,15 @@ RSpec.describe User, type: :model do
     context 'when email is invalid' do
       context 'when email is empty' do
         it 'return false' do
-          @user.email = ''
-          expect(@user.valid?).to eq false
+          @john.email = ''
+          expect(@john.valid?).to eq false
         end
       end
 
       context 'when email is over 255 characters' do
         it 'return false' do
-          @user.email = 'a' * 244 + '@example.com'
-          expect(@user.valid?).to eq false
+          @john.email = 'a' * 244 + '@example.com'
+          expect(@john.valid?).to eq false
         end
       end
 
@@ -74,8 +74,8 @@ RSpec.describe User, type: :model do
            'foo@bar_baz.com',
            'foo@bar+baz.com',
            'foo@bar..com'].each do |invalid_email|
-             @user.email = invalid_email
-             expect(@user.valid?).to eq false
+             @john.email = invalid_email
+             expect(@john.valid?).to eq false
            end
         end
       end
@@ -85,31 +85,31 @@ RSpec.describe User, type: :model do
   describe 'password' do
     context 'when password is valid' do
       it 'return true' do
-        expect(@user.valid?).to eq true
+        expect(@john.valid?).to eq true
       end
     end
 
     context 'when password is invalid' do
       context 'when password is empty' do
         it 'return false' do
-          @user.password = ''
-          @user.password_confirmation = ''
-          expect(@user.valid?).to eq false
+          @john.password = ''
+          @john.password_confirmation = ''
+          expect(@john.valid?).to eq false
         end
       end
 
       context 'when password and confirmation password do not match' do
         it 'return false' do
-          @user.password_confirmation = 'foobar'
-          expect(@user.valid?).to eq false
+          @john.password_confirmation = 'foobar'
+          expect(@john.valid?).to eq false
         end
       end
 
       context 'when password is less than 6 characters' do
         it 'return false' do
-          @user.password = 'abcde'
-          @user.password_confirmation = 'abcde'
-          expect(@user.valid?).to eq false
+          @john.password = 'abcde'
+          @john.password_confirmation = 'abcde'
+          expect(@john.valid?).to eq false
         end
       end
     end
