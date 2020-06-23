@@ -8,5 +8,7 @@
         .user-post
             %p= post.title
             %p= post.content
+            - if current_user?(@user)
+                = link_to '削除する', post, method: :delete, data: { confirm: '本当に削除しますか？' }
 
     = paginate @posts
