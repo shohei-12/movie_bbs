@@ -1,13 +1,20 @@
-%header.fixed-top
-    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-        %a.navbar-brand{ href: "#" } テキスト
-        %button.navbar-toggler{ type: "button", data: { toggle: "collapse", target: "#navbarNavAltMarkup" }, aria: { controls: "navbarNavAltMarkup", expanded: "false", label: "Toggle navigation" } }
-            %span.navbar-toggler-icon
-        .collapse.navbar-collapse.justify-content-end#navbarNavAltMarkup
-            .navbar-nav
-                %a.nav-item.nav-link.active{ href: "#" } リンク1
-                %a.nav-item.nav-link{ href: "#" } リンク2
-                - if logged_in?
-                    = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-item nav-link'
-                - else
-                    = link_to 'ログイン', login_path, class: 'nav-item nav-link'
+%header
+    .parts
+        %h1
+            = link_to 'MOVIE_BBS', root_path, data: { 'turbolinks' => false }
+        .menu-btn
+            %span
+            %span
+            %span
+    %nav
+        %ul.menu
+            - if logged_in?
+                %li
+                    = link_to 'ユーザーの一覧', users_path, data: { 'turbolinks' => false }
+                %li
+                    = link_to 'ログアウト', logout_path, method: :delete
+            - else
+                %li
+                    = link_to '新規登録', new_user_path, data: { 'turbolinks' => false }
+                %li
+                    = link_to 'ログイン', login_path, data: { 'turbolinks' => false }
