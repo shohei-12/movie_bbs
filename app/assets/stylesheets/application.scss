@@ -1,67 +1,54 @@
+@import "reset";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "header";
+@import "footer";
+@import "home";
 
 html,
 body {
   height: 100%;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 #wrapper {
   position: relative;
   min-height: 100vh;
-  padding-bottom: 52px;
-  box-sizing: border-box;
+  padding-bottom: 66px;
 }
 
-.user,
-.post {
-  padding-top: 100px;
-  h1 {
-    text-align: center;
-  }
-  .danger-message {
-    color: red;
-  }
-  .success-message {
-    color: limegreen;
-  }
+.main-content {
+  min-height: 100vh;
+  background: -moz-linear-gradient(65deg, #f13f79, #ffc778);
+  background: -webkit-linear-gradient(65deg, #f13f79, #ffc778);
+  background: linear-gradient(25deg, #f13f79, #ffc778);
+  padding: 120px 0;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  color: rgba(255, 255, 255, 0.5);
-  padding: 0.5rem 1rem;
-  text-align: center;
-  p {
-    font-size: 12px;
-    letter-spacing: 1px;
-    margin: 0;
-  }
-}
+// pagination
 
 .page-link {
   border: initial;
+  &:hover {
+    z-index: initial;
+    text-decoration: underline;
+    background-color: initial;
+    border-color: initial;
+  }
+  &:focus {
+    z-index: initial;
+    outline: initial;
+    box-shadow: initial;
+  }
 }
 
-/* 表示しているページ番号のデザイン */
 .page-item.active .page-link {
   z-index: initial;
   color: initial;
   background-color: initial;
   border-color: initial;
-}
-
-/*ホバー時のデザイン*/
-.page-link:hover {
-  z-index: initial;
-  text-decoration: underline;
-  background-color: initial;
-  border-color: initial;
-}
-
-.page-link:focus {
-  z-index: initial;
-  outline: initial;
-  box-shadow: initial;
 }
