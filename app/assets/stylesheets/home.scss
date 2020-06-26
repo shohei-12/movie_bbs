@@ -1,48 +1,44 @@
 .top-page {
-  min-height: 100vh;
-  padding-top: 200px;
   color: rgba(255, 255, 255, 0.8);
-  background-image: image-url("movie.jpg");
-  background-color: rgba(255, 255, 255, 0.3);
-  background-blend-mode: lighten;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center center;
-  h1,
-  p {
-    margin-bottom: 80px;
+  text-align: center;
+  h1 {
+    font-size: 52px;
+    font-weight: bold;
+    margin-bottom: 130px;
   }
-  .button {
-    padding-bottom: 50px;
-    .btn-gradient-simple {
+  .description {
+    font-size: 24px;
+    margin-bottom: 130px;
+  }
+  .start {
+    font-size: 20px;
+    div:first-of-type {
+      margin-bottom: 50px;
+    }
+    .top-btn {
       display: inline-block;
       padding: 0.5em 1em;
-      text-decoration: none;
+      background-color: #668ad8;
+      color: #fff;
+      border-bottom: solid 4px #627295;
       border-radius: 3px;
-      font-weight: bold;
-      color: rgba(255, 255, 255, 0.8);
-      background-image: linear-gradient(45deg, #c7020e 0%, #cb4829 100%);
-      transition: 0.4s;
-      &:hover {
-        background-image: linear-gradient(45deg, #c7020e 50%, #cb4829 100%);
-        text-decoration: none;
-        color: #fff;
+      &:active {
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);
+        box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+        border-bottom: none;
       }
     }
   }
 }
 
-@media all and (max-width: 768px) {
-  .button div:first-of-type .btn-gradient-simple {
-    margin-bottom: 30px;
-  }
-}
-
-@media all and (min-width: 768px) {
-  .button {
+@media all and (min-width: 769px) {
+  .top-page .start {
     display: flex;
-    div:first-of-type .btn-gradient-simple {
-      margin-right: 15px;
+    justify-content: center;
+    div:first-of-type {
+      margin-right: 80px;
+      margin-bottom: 0;
     }
   }
 }

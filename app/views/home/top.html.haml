@@ -1,12 +1,17 @@
-= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload'
-.top-page
-    .container
-        .row
-            .col-md-6.text-center.text-md-left
-                %h1 テキスト
-                %p テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-                .button
-                    %div
-                        %a.btn-gradient-simple{ href: "#" } BUTTON1
-                    %div
-                        %a.btn-gradient-simple{ href: "#" } BUTTON2
+.main-content.top-page
+    %h1 Youtubeライフをより最高にしよう
+    .description
+        %p MOVIE_BBSでは、
+        %p
+            = icon('fas', 'check-circle')
+            あなたのお気に入りのYoutube動画を投稿してみんなでシェアできます
+        %p
+            = icon('fas', 'check-circle')
+            色々な人がオススメするYoutube動画を見ることができます
+    .start
+        %div
+            %p ユーザー登録がお済みでない方↓
+            = link_to 'MOVIE_BBSをはじめる', new_user_path, class: 'top-btn', data: { 'turbolinks' => false }
+        %div
+            %p ユーザー登録がお済みの方↓
+            = link_to 'ログインする', login_path, class: 'top-btn', data: { 'turbolinks' => false }
