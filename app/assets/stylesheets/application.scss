@@ -5,10 +5,17 @@
 @import "header";
 @import "footer";
 @import "home";
+@import "users/signup";
+@import "users/form";
 
 html,
 body {
   height: 100%;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
 }
 
 a:hover {
@@ -27,6 +34,20 @@ a:hover {
   background: -webkit-linear-gradient(65deg, #f13f79, #ffc778);
   background: linear-gradient(25deg, #f13f79, #ffc778);
   padding: 120px 0;
+}
+
+.btn-gradient {
+  display: inline-block;
+  padding: 0.5em 1em;
+  border-radius: 3px;
+  font-weight: bold;
+  color: #fff;
+  background-image: linear-gradient(45deg, #709dff 0%, #b0c9ff 100%);
+  transition: 0.4s;
+  &:hover {
+    color: #fff;
+    background-image: linear-gradient(45deg, #709dff 50%, #b0c9ff 100%);
+  }
 }
 
 // pagination
