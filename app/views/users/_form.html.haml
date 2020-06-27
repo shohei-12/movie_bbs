@@ -3,22 +3,22 @@
 
     .form-parts
         = f.label :name, "ユーザー名（50文字以内）"
-        = f.text_field :name
+        = f.text_field :name, class: 'form-name-field'
         = icon('fas', 'user')
 
     .form-parts
         = f.label :email, "メールアドレス"
-        = f.email_field :email
+        = f.email_field :email, class: 'form-email-field'
         = icon('far', 'envelope')
 
     .form-parts
         = f.label :password, "パスワード（6文字以上）"
-        = f.password_field :password
+        = f.password_field :password, class: 'form-password-field'
         = icon('fas', 'key', class: 'key')
 
     .form-parts
         = f.label :password_confirmation, "確認用パスワード"
-        = f.password_field :password_confirmation
+        = f.password_field :password_confirmation, class: 'form-confirmation-field'
         = icon('fas', 'key', class: 'c-key')
 
     = f.submit yield(:button_text), class: 'btn-gradient'

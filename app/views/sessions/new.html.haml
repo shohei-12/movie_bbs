@@ -1,13 +1,17 @@
-.user
+.main-content.user-login.user-form
     %h1 ログイン画面
 
     = render 'shared/flash'
 
     = form_with(url: login_path, scope: :session, local: true) do |f|
-        = f.label :email, "メールアドレス"
-        = f.email_field :email, class: 'form-control'
+        .form-parts
+            = f.label :email, "メールアドレス"
+            = f.email_field :email, class: 'form-email-field'
+            = icon('far', 'envelope')
 
-        = f.label :password, "パスワード"
-        = f.password_field :password, class: 'form-control'
+        .form-parts
+            = f.label :password, "パスワード"
+            = f.password_field :password, class: 'form-password-field'
+            = icon('fas', 'key', class: 'key')
 
-        = f.submit 'ログインする', class: 'btn btn-primary'
+        = f.submit 'ログインする', class: 'btn-gradient'

@@ -1,2 +1,11 @@
 - flash.each do |msg_type, msg|
-    %p{ class: "#{msg_type}-message" }= msg
+    - if msg_type == 'danger'
+        .danger-message
+            %p
+                = icon('fas', 'exclamation-circle')
+                = msg
+    - elsif msg_type == 'success'
+        .success-message
+            %p
+                = icon('fas', 'thumbs-up')
+                = msg

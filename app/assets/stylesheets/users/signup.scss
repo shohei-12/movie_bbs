@@ -1,27 +1,6 @@
-.user-signup {
-  color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  h1 {
-    text-align: center;
-    font-size: 52px;
-    margin-bottom: 130px;
-    font-weight: bold;
-  }
-  #error-messages {
-    width: 55%;
-    margin: 0 auto;
-    text-align: left;
-    line-height: 2;
-    ul {
-      margin-bottom: 30px;
-    }
-    i {
-      color: yellow;
-    }
-  }
-  .btn-gradient {
-    font-size: 20px;
-    border: none;
-    outline: none;
+.user-signup #error-messages {
+  line-height: 2;
+  ul {
+    margin-bottom: 30px;
   }
 }
