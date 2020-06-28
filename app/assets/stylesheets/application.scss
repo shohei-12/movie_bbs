@@ -52,24 +52,6 @@ a:hover {
 
 // pagination
 
-.page-link {
-  border: initial;
-  &:hover {
-    z-index: initial;
-    text-decoration: underline;
-    background-color: initial;
-    border-color: initial;
-  }
-  &:focus {
-    z-index: initial;
-    outline: initial;
-    box-shadow: initial;
-  }
-}
-
-.page-item.active .page-link {
-  z-index: initial;
-  color: initial;
-  background-color: initial;
-  border-color: initial;
+.pagination {
+  display: none;
 }

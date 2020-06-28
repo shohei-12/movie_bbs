@@ -1,6 +1,6 @@
 .user
     %h1 ユーザーの一覧
-    %ul
+    %ul.jscroll
         - @users.each do |user|
             %li
                 = link_to user.name, user
@@ -10,4 +10,4 @@
                             |
                             = link_to '削除する', user, method: :delete, data: { confirm: '本当に削除しますか？' }
 
-    = paginate @users
+        = paginate @users
