@@ -4,6 +4,8 @@
 
     %p= @user.name
 
+    = link_to 'ユーザー情報を編集する', edit_user_path(@user)
+
     - @posts.each do |post|
         .user-post
             %p= post.title
