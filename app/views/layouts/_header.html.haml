@@ -12,6 +12,8 @@
                 %li
                     = link_to 'ユーザーの一覧', users_path, data: { 'turbolinks' => false }
                 %li
+                    = link_to 'マイページ', current_user, data: { 'turbolinks' => false }
+                %li
                     = link_to 'ログアウト', logout_path, method: :delete
             - else
                 %li
