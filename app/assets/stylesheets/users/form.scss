@@ -48,3 +48,10 @@ form .btn-gradient {
     color: yellow;
   }
 }
+
+.user-signup-edit #error-messages {
+  line-height: 2;
+  ul {
+    margin-bottom: 30px;
+  }
+}
