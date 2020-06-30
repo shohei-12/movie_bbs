@@ -2,6 +2,10 @@
     = render 'shared/error_messages', object: f.object
 
     .form-parts
+        = f.label :image, "プロフィール画像"
+        = f.file_field :image, accept: 'image/jpeg, image/png, image/gif'
+
+    .form-parts
         = f.label :name, "ユーザー名（50文字以内）"
         = f.text_field :name, class: 'form-name-field'
         = icon('fas', 'user')

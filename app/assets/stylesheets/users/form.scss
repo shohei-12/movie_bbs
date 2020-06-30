@@ -24,10 +24,12 @@ form .btn-gradient {
     margin: 8px 0 50px;
     padding: 0.7em;
     padding-left: 40px;
-    transition: border-color 0.3s;
     border: none;
     border-radius: 4px;
     outline: none;
+  }
+  input[type="file"] {
+    padding-left: 0;
   }
   i {
     position: absolute;

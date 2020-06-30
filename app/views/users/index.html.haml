@@ -3,6 +3,10 @@
     %ul.jscroll
         - @users.each do |user|
             %li
+                - if user.image.attached?
+                    = image_tag user.image.variant(resize_to_fill: [50, 50]), alt: 'プロフィール画像'
+                - else
+                    = image_tag 'default-icon.png', size: '50x50', alt: 'プロフィール画像'
                 = link_to user.name, user
                 - if logged_in?
                     - if current_user.admin?

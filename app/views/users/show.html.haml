@@ -2,6 +2,11 @@
 .user
     = render 'shared/flash'
 
+    - if @user.image.attached?
+        = image_tag @user.image.variant(resize_to_fill: [50, 50]), alt: 'プロフィール画像'
+    - else
+        = image_tag 'default-icon.png', size: '50x50', alt: 'プロフィール画像'
+
     %p= @user.name
 
     = link_to 'ユーザー情報を編集する', edit_user_path(@user)
