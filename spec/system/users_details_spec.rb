@@ -15,14 +15,16 @@ RSpec.describe 'UsersDetails', type: :system do
       click_link 'john'
       is_expected.to have_current_path user_path(@john)
       is_expected.to have_content @john.name
-      Post.page(1).each do |post|
+      Post.page(1).order(created_at: :desc).each do |post|
         is_expected.to have_content post.title
+        is_expected.to have_content post.category.name
         is_expected.to have_content post.content
       end
       is_expected.to have_css '.pagination'
       click_link '2'
-      Post.page(2).each do |post|
+      Post.page(2).order(created_at: :desc).each do |post|
         is_expected.to have_content post.title
+        is_expected.to have_content post.category.name
         is_expected.to have_content post.content
       end
     end

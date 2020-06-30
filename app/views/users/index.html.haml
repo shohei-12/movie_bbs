@@ -7,7 +7,7 @@
                     = image_tag user.image.variant(resize_to_fill: [50, 50]), alt: 'プロフィール画像'
                 - else
                     = image_tag 'default-icon.png', size: '50x50', alt: 'プロフィール画像'
-                = link_to user.name, user
+                = link_to user.name, user, data: { 'turbolinks' => false }
                 - if logged_in?
                     - if current_user.admin?
                         - unless user.admin?
