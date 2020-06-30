@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to root_url
+      redirect_to current_user
     else
       render 'new'
     end
@@ -31,6 +31,7 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(
       :title,
+      :category_id,
       :content
     )
   end

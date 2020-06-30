@@ -20,6 +20,27 @@ User.create!(
   )
 end
 
+# category
+Category.create!(
+  name: 'チャレンジ系'
+)
+
+Category.create!(
+  name: 'ゲーム実況'
+)
+
+Category.create!(
+  name: '音楽系'
+)
+
+Category.create!(
+  name: '料理・グルメ系'
+)
+
+Category.create!(
+  name: 'その他'
+)
+
 # posts
 30.times do |n|
   title = "テスト#{n + 1}"
@@ -27,6 +48,7 @@ end
   Post.create!(
     title: title,
     content: content,
-    user_id: 1
+    user_id: 1,
+    category_id: 1
   )
 end

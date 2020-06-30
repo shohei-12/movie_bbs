@@ -1,4 +1,5 @@
-.user-form {
+.user-form,
+.post-form {
   color: rgba(255, 255, 255, 0.8);
   text-align: center;
   h1 {
@@ -19,7 +20,9 @@ form .btn-gradient {
   width: 55%;
   margin: 0 auto;
   text-align: left;
-  input {
+  input,
+  select,
+  textarea {
     width: 100%;
     margin: 8px 0 50px;
     padding: 0.7em;
@@ -28,8 +31,12 @@ form .btn-gradient {
     border-radius: 4px;
     outline: none;
   }
+  select,
   input[type="file"] {
     padding-left: 0;
+  }
+  select {
+    padding-top: 5px;
   }
   i {
     position: absolute;
@@ -42,7 +49,8 @@ form .btn-gradient {
 }
 
 .user-form #error-messages,
-.user-form .danger-message {
+.user-form .danger-message,
+.post-form #error-messages {
   width: 55%;
   margin: 0 auto;
   text-align: left;
@@ -51,7 +59,8 @@ form .btn-gradient {
   }
 }
 
-.user-signup-edit #error-messages {
+.user-signup-edit #error-messages,
+.post-form #error-messages {
   line-height: 2;
   ul {
     margin-bottom: 30px;

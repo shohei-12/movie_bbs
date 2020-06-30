@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'PostsCreate', type: :system do
-  before { @john = create(:john) }
+  before do
+    @john = create(:john)
+    create(:challenge)
+  end
 
   subject { page }
 
@@ -14,9 +17,10 @@ RSpec.describe 'PostsCreate', type: :system do
     context 'when post information is valid' do
       it 'succeed in posting' do
         fill_in 'タイトル（50文字以内）', with: 'テスト'
+        select 'チャレンジ系', from: 'カテゴリー選択'
         fill_in '内容（800文字以内）', with: 'テスト投稿です。'
         expect { click_button '投稿する' }.to change(Post, :count).by(1)
-        is_expected.to have_current_path root_path
+        is_expected.to have_current_path user_path(@john)
       end
     end
 
