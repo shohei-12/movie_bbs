@@ -12,7 +12,8 @@ RSpec.describe 'UsersSignup', type: :system do
       fill_in 'パスワード（6文字以上）', with: 'password'
       fill_in '確認用パスワード', with: 'password'
       expect { click_button '登録する' }.to change(User, :count).by(1)
-      is_expected.to have_current_path root_path
+      is_expected.to have_current_path user_path(User.first)
+      is_expected.to have_css '.success-message'
     end
   end
 
