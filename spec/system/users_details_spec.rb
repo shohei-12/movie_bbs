@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'UsersDetails', type: :system do
+RSpec.describe 'UsersDetails', js: true, type: :system do
   before do
     @john = create(:john)
     create_list(:post_1, 30, user_id: @john.id)
@@ -8,24 +8,59 @@ RSpec.describe 'UsersDetails', type: :system do
 
   subject { page }
 
-  context 'when access from the user list page' do
-    before { visit users_path }
+  context 'when the user is logged in' do
+    before { log_in_as(@john) }
 
-    it 'display user details page' do
-      click_link 'john'
-      is_expected.to have_current_path user_path(@john)
-      is_expected.to have_content @john.name
-      Post.page(1).order(created_at: :desc).each do |post|
-        is_expected.to have_content post.title
-        is_expected.to have_content post.category.name
-        is_expected.to have_content post.content
+    context 'when visit my details page' do
+      it 'displayed correctly' do
+        visit user_path(@john)
+        execute_script('window.scroll(0,10000);')
+        is_expected.to have_selector 'img[alt=プロフィール画像]'
+        is_expected.to have_content @john.name
+        is_expected.to have_link 'ユーザー情報を編集する', href: edit_user_path(@john)
+        @john.posts.order(created_at: :desc).each do |post|
+          is_expected.to have_content post.title
+          is_expected.to have_content post.category.name
+          is_expected.to have_content post.content
+          is_expected.to have_link '削除する', href: post_path(post)
+        end
       end
-      is_expected.to have_css '.pagination'
-      click_link '2'
-      Post.page(2).order(created_at: :desc).each do |post|
+    end
+
+    context 'when visit other users details page' do
+      before do
+        @mary = create(:mary)
+        create_list(:post_1, 30, user_id: @mary.id)
+      end
+
+      it 'displayed correctly' do
+        visit user_path(@mary)
+        execute_script('window.scroll(0,10000);')
+        is_expected.to have_selector 'img[alt=プロフィール画像]'
+        is_expected.to have_content @mary.name
+        is_expected.not_to have_link 'ユーザー情報を編集する', href: edit_user_path(@john)
+        @mary.posts.order(created_at: :desc).each do |post|
+          is_expected.to have_content post.title
+          is_expected.to have_content post.category.name
+          is_expected.to have_content post.content
+          is_expected.not_to have_link '削除する', href: post_path(post)
+        end
+      end
+    end
+  end
+
+  context 'when the user is not logged in' do
+    it 'displayed correctly' do
+      visit user_path(@john)
+      execute_script('window.scroll(0,10000);')
+      is_expected.to have_selector 'img[alt=プロフィール画像]'
+      is_expected.to have_content @john.name
+      is_expected.not_to have_link 'ユーザー情報を編集する', href: edit_user_path(@john)
+      @john.posts.order(created_at: :desc).each do |post|
         is_expected.to have_content post.title
         is_expected.to have_content post.category.name
         is_expected.to have_content post.content
+        is_expected.not_to have_link '削除する', href: post_path(post)
       end
     end
   end
