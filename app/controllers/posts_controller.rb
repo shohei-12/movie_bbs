@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    @post.url = @post.url[-11, 11] # Get the last 11 characters from the url
     if @post.save
       redirect_to current_user
     else
@@ -18,7 +19,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find_by(id: params[:id])
     if !@post.nil?
       @post.destroy
-      flash[:success] = '投稿「' + @post.title + '」を削除しました。'
+      flash[:success] = '投稿を削除しました。'
       redirect_to current_user
     else
       flash[:danger] = '該当する投稿がありません。'
@@ -30,7 +31,7 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(
-      :title,
+      :url,
       :category_id,
       :content
     )

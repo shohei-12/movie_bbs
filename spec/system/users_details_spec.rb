@@ -19,7 +19,7 @@ RSpec.describe 'UsersDetails', js: true, type: :system do
         is_expected.to have_content @john.name
         is_expected.to have_link 'ユーザー情報を編集する', href: edit_user_path(@john)
         @john.posts.order(created_at: :desc).each do |post|
-          is_expected.to have_content post.title
+          is_expected.to have_selector 'iframe'
           is_expected.to have_content post.category.name
           is_expected.to have_content post.content
           is_expected.to have_link '削除する', href: post_path(post)
@@ -40,7 +40,7 @@ RSpec.describe 'UsersDetails', js: true, type: :system do
         is_expected.to have_content @mary.name
         is_expected.not_to have_link 'ユーザー情報を編集する', href: edit_user_path(@john)
         @mary.posts.order(created_at: :desc).each do |post|
-          is_expected.to have_content post.title
+          is_expected.to have_selector 'iframe'
           is_expected.to have_content post.category.name
           is_expected.to have_content post.content
           is_expected.not_to have_link '削除する', href: post_path(post)
@@ -57,7 +57,7 @@ RSpec.describe 'UsersDetails', js: true, type: :system do
       is_expected.to have_content @john.name
       is_expected.not_to have_link 'ユーザー情報を編集する', href: edit_user_path(@john)
       @john.posts.order(created_at: :desc).each do |post|
-        is_expected.to have_content post.title
+        is_expected.to have_selector 'iframe'
         is_expected.to have_content post.category.name
         is_expected.to have_content post.content
         is_expected.not_to have_link '削除する', href: post_path(post)

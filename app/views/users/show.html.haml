@@ -15,7 +15,7 @@
     .jscroll
         - @posts.each do |post|
             .user-post
-                %p= post.title
+                %iframe(width="560" height="315" src="https://www.youtube.com/embed/#{post.url}" frameborder="0" allow="fullscreen")
                 %p= post.category.name
                 %p= post.content
                 - if current_user?(@user)
