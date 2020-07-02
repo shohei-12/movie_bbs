@@ -43,10 +43,10 @@ Category.create!(
 
 # posts
 30.times do |n|
-  title = "テスト#{n + 1}"
+  url = 'TQ8WlA2GXbk'
   content = "テスト投稿#{n + 1}です。"
   Post.create!(
-    title: title,
+    url: url,
     content: content,
     user_id: 1,
     category_id: 1

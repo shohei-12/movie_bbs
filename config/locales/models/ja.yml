@@ -11,5 +11,5 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
       post:
-        title: タイトル
+        url: URL
         content: 内容
