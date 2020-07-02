@@ -12,9 +12,9 @@
     - if current_user?(@user)
         = link_to 'ユーザー情報を編集する', edit_user_path(@user)
 
-    .jscroll
+    %ul.jscroll
         - @posts.each do |post|
-            .user-post
+            %li
                 %iframe(width="560" height="315" src="https://www.youtube.com/embed/#{post.url}" frameborder="0" allow="fullscreen")
                 %p= post.category.name
                 %p= post.content
