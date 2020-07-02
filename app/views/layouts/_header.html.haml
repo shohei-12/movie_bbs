@@ -10,6 +10,8 @@
         %ul.menu
             - if logged_in?
                 %li
+                    = link_to 'みんなの投稿', posts_path, data: { 'turbolinks' => false }
+                %li
                     = link_to 'ユーザーの一覧', users_path, data: { 'turbolinks' => false }
                 %li
                     = link_to '投稿する', new_post_path, data: { 'turbolinks' => false }

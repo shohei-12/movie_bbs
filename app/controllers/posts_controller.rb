@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   before_action :check_logged_in, only: %i[new create destroy]
 
+  def index
+    @posts = Post.page(params[:page]).order(created_at: :desc)
+  end
+
   def new
     @post = current_user.posts.build
   end

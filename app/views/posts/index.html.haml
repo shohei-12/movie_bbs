@@ -1,0 +1,11 @@
+.post-index
+    %h1 みんなが投稿したYouTube動画
+    %ul.jscroll
+        - @posts.each do |post|
+            %li
+                %p= link_to post.user.name, post.user, data: { 'turbolinks' => false }
+                %iframe(width="560" height="315" src="https://www.youtube.com/embed/#{post.url}" frameborder="0" allow="fullscreen")
+                %p= post.category.name
+                %p= post.content
+
+        = paginate @posts
