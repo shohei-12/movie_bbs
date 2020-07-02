@@ -2,7 +2,12 @@ class PostsController < ApplicationController
   before_action :check_logged_in, only: %i[new create destroy]
 
   def index
-    @posts = Post.page(params[:page]).order(created_at: :desc)
+    if params[:category]
+      @category = Category.find(params[:category])
+      @posts = @category.posts.page(params[:page]).order(created_at: :desc)
+    else
+      @posts = Post.page(params[:page]).order(created_at: :desc)
+    end
   end
 
   def new
