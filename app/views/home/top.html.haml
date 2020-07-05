@@ -15,3 +15,7 @@
         %div
             %p ユーザー登録がお済みの方↓
             = link_to 'ログインする', login_path, class: 'btn-gradient', data: { 'turbolinks' => false }
+
+        %div
+            %p お試しでこのアプリを利用する↓
+            = link_to 'かんたんログイン', guest_login_path, method: :post, class: 'btn-gradient guest-login-btn', data: { 'turbolinks' => false }

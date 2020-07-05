@@ -1,3 +1,11 @@
 .user-login .danger-message p {
   margin-bottom: 30px;
 }
+
+.guest-login-btn {
+  background-image: linear-gradient(45deg, #15df47 0%, #b1e971 100%);
+  &:hover {
+    color: #fff;
+    background-image: linear-gradient(45deg, #15df47 50%, #b1e971 100%);
+  }
+}

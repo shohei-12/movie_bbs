@@ -15,3 +15,5 @@
             = icon('fas', 'key', class: 'key')
 
         = f.submit 'ログインする', class: 'btn-gradient'
+
+    = link_to 'かんたんログイン', guest_login_path, method: :post, class: 'btn-gradient guest-login-btn'
