@@ -14,6 +14,13 @@ FactoryBot.define do
     password_confirmation { 'password' }
   end
 
+  factory :guest, class: User do
+    name { 'guest' }
+    email { 'guest@gmail.com' }
+    password { 'password' }
+    password_confirmation { 'password' }
+  end
+
   factory :dummy, class: User do
     sequence(:name) { |i| "user-#{i}" }
     sequence(:email) { |i| "user-#{i}@example.com" }

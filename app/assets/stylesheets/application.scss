@@ -2,11 +2,6 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "header";
-@import "footer";
-@import "home";
-@import "users/form";
-@import "users/login";
 
 html,
 body {
@@ -55,3 +50,9 @@ a:hover {
 .pagination {
   display: none;
 }
+
+@import "header";
+@import "footer";
+@import "home";
+@import "users/form";
+@import "users/login";
