@@ -13,7 +13,7 @@ RSpec.describe 'Posts', type: :request do
         post posts_path,
              params: { post: { url: 'TQ8WlA2GXbk', content: 'テスト投稿です', user_id: john.id, category_id: challenge.id } }
         is_expected.to redirect_to login_path
-        expect(Post.count). to eq 0
+        expect(Post.count).to eq 0
       end
     end
   end
