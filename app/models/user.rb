@@ -8,6 +8,8 @@ class User < ApplicationRecord
            foreign_key: 'follow_id',
            dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :user
+  has_many :likes, dependent: :destroy
+  has_many :like_posts, through: :likes, source: :post
 
   before_save { email.downcase! }
   validates :name, presence: true, length: { maximum: 50 }
