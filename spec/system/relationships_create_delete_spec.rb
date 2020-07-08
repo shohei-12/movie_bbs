@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'RelationshipsCreateDelete', type: :system do
+RSpec.describe 'RelationshipsCreateDelete', js: true, type: :system do
   let(:john) { create(:john) }
   let(:mary) { create(:mary) }
 
@@ -11,10 +11,9 @@ RSpec.describe 'RelationshipsCreateDelete', type: :system do
 
     it 'can follow and unfollow other user' do
       visit user_path(mary)
-      expect { click_button 'フォローする' }.to change(Relationship, :count).by(1)
-      is_expected.to have_css '.success-message'
-      expect { click_button 'フォローを解除する' }.to change(Relationship, :count).by(-1)
-      is_expected.to have_css '.success-message'
+      click_button 'フォローする'
+      is_expected.to have_button 'フォローを解除する'
+      click_button 'フォローを解除する'
       is_expected.to have_button 'フォローする'
     end
   end

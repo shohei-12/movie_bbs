@@ -11,14 +11,14 @@ RSpec.describe 'Relationships', type: :request do
   context 'when the user is not logged in' do
     describe 'POST #create' do
       it 'cannot follow' do
-        post relationships_path, params: { relationship: { follow_id: john.id } }
+        post relationships_path, params: { relationship: { follow_id: john.id } }, xhr: true
         is_expected.to redirect_to login_path
       end
     end
 
     describe 'DELETE #destroy' do
       it 'cannot unfollow' do
-        delete relationship_path(relationship)
+        delete relationship_path(relationship), xhr: true
         is_expected.to redirect_to login_path
       end
     end
@@ -33,8 +33,7 @@ RSpec.describe 'Relationships', type: :request do
     describe 'POST #create' do
       context 'when following self' do
         it 'cannot follow' do
-          post relationships_path, params: { relationship: { follow_id: guest.id } }
-          is_expected.to redirect_to user_path(guest)
+          post relationships_path, params: { relationship: { follow_id: guest.id } }, xhr: true
           expect(Relationship.count).to eq 0
         end
       end
@@ -43,7 +42,7 @@ RSpec.describe 'Relationships', type: :request do
         before { create(:relationship, user_id: guest.id, follow_id: john.id) }
 
         it 'cannot follow' do
-          post relationships_path, params: { relationship: { follow_id: john.id } }
+          post relationships_path, params: { relationship: { follow_id: john.id } }, xhr: true
         rescue StandardError
           expect(Relationship.count).to eq 1
         end
@@ -53,7 +52,7 @@ RSpec.describe 'Relationships', type: :request do
     describe 'DELETE #destroy' do
       context "when delete other user's follow relationship" do
         it 'cannot unfollow' do
-          delete relationship_path(relationship)
+          delete relationship_path(relationship), xhr: true
         rescue StandardError
           expect(Relationship.count).to eq 1
         end
