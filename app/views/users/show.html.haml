@@ -9,7 +9,7 @@
 
     %p= @user.name
 
-    = render 'relationships/follow_button', user: @user
+    #follow-unfollow-btn= render 'relationships/follow_unfollow_button', user: @user
 
     - if current_user?(@user)
         = link_to 'ユーザー情報を編集する', edit_user_path(@user)
