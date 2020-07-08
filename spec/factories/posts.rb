@@ -11,4 +11,9 @@ FactoryBot.define do
     url { 'TQ8WlA2GXbk' }
     sequence(:content) { |i| "This is a test post#{i}." }
   end
+
+  factory :post_3, class: Post do
+    url { 'TQ8WlA2GXbk' }
+    sequence(:content) { |i| "This is a test post#{i}." }
+  end
 end
