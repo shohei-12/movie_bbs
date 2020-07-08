@@ -23,7 +23,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page]).order(created_at: :desc)
+    if params[:category]
+      @category = Category.find(params[:category])
+      @posts = @user.posts.where(category_id: @category.id).page(params[:page]).order(created_at: :desc)
+    else
+      @posts = @user.posts.page(params[:page]).order(created_at: :desc)
+    end
   end
 
   def edit; end
