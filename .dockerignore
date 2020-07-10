@@ -2,12 +2,6 @@
 .gitignore
 node_modules
 Dockerfile
-docker-compose.yml
 .dockerignore
-public/packs
-public/packs-test
 .env
-storage
-log
-tmp
 README.md
