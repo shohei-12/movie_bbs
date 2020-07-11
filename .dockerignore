@@ -5,3 +5,8 @@ Dockerfile
 .dockerignore
 .env
 README.md
+config/master.key
+.DS_Store
+.ruby-version
+.bundle
+vendor/bundle
