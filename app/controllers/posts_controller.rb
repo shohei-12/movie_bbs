@@ -10,6 +10,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def popular
+    @posts = Post.joins(:likes).group(:post_id).order('count(post_id) desc').page(params[:page]).order(created_at: :desc)
+  end
+
   def new
     @post = current_user.posts.build
   end
