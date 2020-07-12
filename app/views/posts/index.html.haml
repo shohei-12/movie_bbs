@@ -4,4 +4,14 @@
     %h1 みんなが投稿したYouTube動画
     = render 'shared/popular_ranking'
     %ul.jscroll
-        = render 'posts'
+        - @posts.each do |post|
+            %li
+                %p= link_to post.user.name, post.user, data: { 'turbolinks' => false }
+                %iframe(width="560" height="315" src="https://www.youtube.com/embed/#{post.url}" frameborder="0" allow="fullscreen")
+                %p= link_to post.category.name, "/posts?category=#{post.category.id}", data: { 'turbolinks' => false }
+                %p= post.content
+                - if logged_in?
+                    %div{ id: "like-#{post.id}" }= render 'likes/like_link', post: post
+
+        = paginate @posts
+
