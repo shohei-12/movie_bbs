@@ -14,7 +14,7 @@ RSpec.describe 'PostsList', js: true, type: :system do
     Post.all.order(created_at: :desc).each do |post|
       is_expected.to have_link post.user.name, href: user_path(post.user)
       is_expected.to have_selector 'iframe'
-      is_expected.to have_content post.category.name
+      is_expected.to have_link post.category.name, href: "/posts?category=#{post.category.id}"
       is_expected.to have_content post.content
     end
   end
@@ -26,7 +26,7 @@ RSpec.describe 'PostsList', js: true, type: :system do
     Post.all.order(created_at: :desc).each do |post|
       is_expected.to have_link post.user.name, href: user_path(post.user)
       is_expected.to have_selector 'iframe'
-      is_expected.to have_content 'チャレンジ系'
+      is_expected.to have_link 'チャレンジ系', href: "/posts?category=#{post.category.id}"
       is_expected.to have_content post.content
     end
   end

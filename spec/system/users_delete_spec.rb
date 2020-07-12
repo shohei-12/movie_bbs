@@ -21,13 +21,13 @@ RSpec.describe 'UsersDelete', js: true, type: :system do
     it 'delete a user' do
       accept_confirm { click_link '削除する', match: :first }
       is_expected.to have_current_path users_path
-      expect(User.count). to eq 4
+      expect(User.count).to eq 4
     end
 
     it 'do not delete a user' do
       dismiss_confirm { click_link '削除する', match: :first }
       is_expected.to have_current_path users_path
-      expect(User.count). to eq 5
+      expect(User.count).to eq 5
     end
   end
 
