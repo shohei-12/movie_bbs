@@ -31,6 +31,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def popular_posts
+    @user = User.find(params[:id])
+    if params[:category]
+      @category = Category.find(params[:category])
+      @posts = @user.posts.where(category_id: @category.id).joins(:likes).group(:post_id).order('count(post_id) desc').page(params[:page]).order(created_at: :desc)
+    else
+      @posts = @user.posts.joins(:likes).group(:post_id).order('count(post_id) desc').page(params[:page]).order(created_at: :desc)
+    end
+  end
+
   def edit; end
 
   def update

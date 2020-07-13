@@ -10,6 +10,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def popular
+    if params[:category]
+      @category = Category.find(params[:category])
+      @posts = @category.posts.joins(:likes).group(:post_id).order('count(post_id) desc').page(params[:page]).order(created_at: :desc)
+    else
+      @posts = Post.joins(:likes).group(:post_id).order('count(post_id) desc').page(params[:page]).order(created_at: :desc)
+    end
+  end
+
   def new
     @post = current_user.posts.build
   end
