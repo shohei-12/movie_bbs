@@ -1,3 +1,5 @@
 class HomeController < ApplicationController
-  def top; end
+  def top
+    current_user
+  end
 end

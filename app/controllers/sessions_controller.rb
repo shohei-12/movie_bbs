@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email].downcase)
     if @user&.authenticate(params[:session][:password])
       log_in @user
+      remember @user if params[:session][:remember_me] == '1'
       flash[:success] = 'ログインしました'
       redirect_to @user
     else

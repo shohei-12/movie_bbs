@@ -23,7 +23,7 @@ form .btn-gradient {
   width: 55%;
   margin: 0 auto;
   text-align: left;
-  input,
+  input:not([type="checkbox"]),
   select,
   textarea {
     width: 100%;
@@ -33,6 +33,10 @@ form .btn-gradient {
     border: none;
     border-radius: 4px;
     outline: none;
+  }
+  input[type="checkbox"] {
+    margin-right: 10px;
+    margin-bottom: 50px;
   }
   select,
   input[type="file"] {

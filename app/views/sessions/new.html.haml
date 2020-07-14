@@ -14,6 +14,10 @@
             = f.password_field :password, class: 'form-password-field'
             = icon('fas', 'key', class: 'key')
 
+        .form-parts
+            = f.check_box :remember_me
+            %span ログイン状態を保存する
+
         = f.submit 'ログインする', class: 'btn-gradient'
 
     = link_to 'かんたんログイン', guest_login_path, method: :post, class: 'btn-gradient guest-login-btn'
