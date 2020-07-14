@@ -176,4 +176,55 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '#self.new_token' do
+    it 'return a random token' do
+      expect(User.new_token).to be_truthy
+    end
+  end
+
+  describe '#self.digest(string)' do
+    it 'return a hash value of the passed string' do
+      expect(User.digest(User.new_token)).to be_truthy
+    end
+  end
+
+  describe '#remember' do
+    it 'update remember_digest' do
+      john.remember
+      expect(john.remember_digest).not_to eq nil
+    end
+  end
+
+  describe '#authenticated?(remember_token)' do
+    context 'when remember_digest is nil' do
+      it 'return false' do
+        expect(john.authenticated?(User.new_token)).to eq false
+      end
+    end
+
+    context 'when remember_digest is not nil' do
+      context 'when remember_token and remember_digest do not match' do
+        it 'return false' do
+          john.remember
+          expect(john.authenticated?(User.new_token)).to eq false
+        end
+      end
+
+      context 'when remember_token and remember_digest match' do
+        it 'return true' do
+          john.remember
+          expect(john.authenticated?(john.remember_token)).to eq true
+        end
+      end
+    end
+  end
+
+  describe '#forget' do
+    it 'update remember_digest' do
+      john.remember
+      john.forget
+      expect(john.remember_digest).to eq nil
+    end
+  end
 end
