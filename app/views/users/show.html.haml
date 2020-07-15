@@ -10,6 +10,12 @@
 
     %p= @user.name
 
+    .follow-follower-count
+        %span フォロー数
+        = link_to @user.followings.count, '#'
+        %span フォロワー数
+        = link_to @user.followers.count, '#'
+
     #follow-unfollow-btn= render 'relationships/follow_unfollow_button', user: @user
 
     = render 'shared/popular_ranking'
