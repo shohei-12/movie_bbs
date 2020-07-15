@@ -7,6 +7,11 @@
         - @posts.each do |post|
             %li
                 %p= link_to post.user.name, post.user, data: { 'turbolinks' => false }
+                .follow-follower-count
+                    %span フォロー数
+                    = link_to post.user.followings.count, '#'
+                    %span フォロワー数
+                    = link_to post.user.followers.count, '#'
                 %iframe(width="560" height="315" src="https://www.youtube.com/embed/#{post.url}" frameborder="0" allow="fullscreen")
                 %p= link_to post.category.name, "/posts?category=#{post.category.id}", data: { 'turbolinks' => false }
                 %p= post.content

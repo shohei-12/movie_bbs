@@ -8,6 +8,11 @@
                 - else
                     = image_tag 'default-icon.png', size: '50x50', alt: 'プロフィール画像'
                 = link_to user.name, user, data: { 'turbolinks' => false }
+                .follow-follower-count
+                    %span フォロー数
+                    = link_to user.followings.count, '#'
+                    %span フォロワー数
+                    = link_to user.followers.count, '#'
                 - if logged_in?
                     - if current_user.admin?
                         - unless user.admin?
