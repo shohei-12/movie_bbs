@@ -13,10 +13,11 @@ class PostsController < ApplicationController
   def popular
     if params[:category]
       @category = Category.find(params[:category])
-      @posts = @category.posts.joins(:likes).group(:post_id).order('count(post_id) desc').page(params[:page]).order(created_at: :desc)
+      @posts = @category.posts.joins(:likes).group(:post_id).order('count(post_id) desc')
     else
-      @posts = Post.joins(:likes).group(:post_id).order('count(post_id) desc').page(params[:page]).order(created_at: :desc)
+      @posts = Post.joins(:likes).group(:post_id).order('count(post_id) desc')
     end
+    @posts = @posts.page(params[:page]).order(created_at: :desc)
   end
 
   def new
@@ -38,11 +39,10 @@ class PostsController < ApplicationController
     if !@post.nil?
       @post.destroy
       flash[:success] = '投稿を削除しました。'
-      redirect_to current_user
     else
       flash[:danger] = '該当する投稿がありません。'
-      redirect_to current_user
     end
+    redirect_to current_user
   end
 
   private

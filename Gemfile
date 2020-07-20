@@ -30,38 +30,38 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
-  gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rspec-rails'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
-  gem 'pry-rails'
-  gem 'pry-byebug'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
   gem 'capybara'
-  gem 'selenium-webdriver'
   gem 'rack_session_access'
+  gem 'selenium-webdriver'
 end
 
-gem 'haml-rails'
-gem 'bootstrap'
-gem 'jquery-rails'
-gem 'uglifier'
-gem 'rails-i18n'
-gem 'gimei'
-gem 'kaminari'
-gem 'font-awesome-sass'
 gem 'active_storage_validations'
+gem 'bootstrap'
+gem 'font-awesome-sass'
+gem 'gimei'
+gem 'haml-rails'
+gem 'jquery-rails'
+gem 'kaminari'
+gem 'rails-i18n'
+gem 'uglifier'
 gem 'unicorn'
