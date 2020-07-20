@@ -10,7 +10,7 @@ RSpec.describe 'PostsList', js: true, type: :system do
   subject { page }
 
   it 'display all posts' do
-    execute_script('window.scroll(0,10000);')
+    execute_script('window.scrollTo(0, document.body.scrollHeight);')
     Post.all.order(created_at: :desc).each do |post|
       is_expected.to have_link post.user.name, href: user_path(post.user)
       is_expected.to have_selector 'iframe'
@@ -22,7 +22,7 @@ RSpec.describe 'PostsList', js: true, type: :system do
   it 'display posts by category' do
     first('.jscroll li').click_link 'チャレンジ系'
     visit current_path
-    execute_script('window.scroll(0,10000);')
+    execute_script('window.scrollTo(0, document.body.scrollHeight);')
     Post.all.order(created_at: :desc).each do |post|
       is_expected.to have_link post.user.name, href: user_path(post.user)
       is_expected.to have_selector 'iframe'
