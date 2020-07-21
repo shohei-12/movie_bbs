@@ -11,14 +11,21 @@ User.create!(
 99.times do |n|
   name = Gimei.unique.name.kanji
   email = "example-#{n + 1}@gmail.com"
-  password = 'password'
   User.create!(
     name: name,
     email: email,
-    password: password,
-    password_confirmation: password
+    password: 'password',
+    password_confirmation: 'password'
   )
 end
+
+# guest user
+User.create!(
+  name: 'ゲストユーザー',
+  email: 'guest@gmail.com',
+  password: 'password',
+  password_confirmation: 'password'
+)
 
 # category
 Category.create!(
