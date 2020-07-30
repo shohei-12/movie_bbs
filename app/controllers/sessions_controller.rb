@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def guest
-    @user = User.find_by(email: 'guest@gmail.com')
+    @user = User.find_by(email: 'guest@example.com')
     if @user&.authenticate('password')
       log_in @user
       flash[:success] = 'ログインしました'

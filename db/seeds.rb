@@ -1,7 +1,7 @@
 # main user
 User.create!(
   name: '前田 翔平',
-  email: 'maeda@gmail.com',
+  email: 'maeda@example.com',
   password: 'password',
   password_confirmation: 'password',
   admin: true
@@ -10,7 +10,7 @@ User.create!(
 # 99 sub users
 99.times do |n|
   name = Gimei.unique.name.kanji
-  email = "example-#{n + 1}@gmail.com"
+  email = "example-#{n + 1}@example.com"
   User.create!(
     name: name,
     email: email,
@@ -22,7 +22,7 @@ end
 # guest user
 User.create!(
   name: 'ゲストユーザー',
-  email: 'guest@gmail.com',
+  email: 'guest@example.com',
   password: 'password',
   password_confirmation: 'password'
 )
